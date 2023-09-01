@@ -1,0 +1,70 @@
+<div class="bg-primary banner d-flex justify-content-center align-items-center">
+  <h1 class="text-white"><i class="fas fa-sign"></i> Crear Agentes</h1>
+</div>
+<div class="container mt-5">
+  <div class="card p-4">
+    <form action="/admin/agentes/crear" method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          name="nombre"
+          placeholder="Nombre:"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input
+          type="text"
+          class="form-control"
+          id="apellido"
+          name="apellido"
+          placeholder="Apellido:"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">Nombre de usuario</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          placeholder="Nombre de usuario:"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Contraseña:"
+          required
+        />
+      </div>
+            <div class="mb-3">
+        <label for="imagen" class="form-label">Foto de perfíl</label>
+        <input
+          type="file"
+          class="form-control"
+          id="imagen"
+          name="imagen"
+        />
+      </div>
+      <div class="text-end">
+        <button type="submit" class="btn btn-primary">Crear</button>
+      </div>
+    </form>
+    {{#if error}}
+      <div class="alert alert-danger" role="alert">
+        {{message}}
+      </div>
+    {{/if}}
+  </div>
+</div>

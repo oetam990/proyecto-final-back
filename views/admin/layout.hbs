@@ -1,0 +1,186 @@
+<html lang="es">
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/sb-admin.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+
+    <script
+      data-search-pseudo-elements
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="nav-fixed">
+    <nav
+      class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
+      id="sidenavAccordion"
+    >
+      <!-- Sidenav Toggle Button-->
+      <button
+        class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0"
+        id="sidebarToggle"
+      ><i data-feather="menu"></i></button>
+      <!-- Navbar Brand-->
+      <!-- * * Tip * * You can use text or an image for your navbar brand.-->
+      <!-- * * * * * * When using an image, we recommend the SVG format.-->
+      <!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
+      <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="/" target="_blank">Ir a la web</a>
+      <!-- Navbar Search Input-->
+      <!-- * * Note: * * Visible only on and above the lg breakpoint-->
+      <form class="form-inline me-auto d-none d-lg-block me-3">
+      </form>
+      <!-- Navbar Items-->
+      <ul class="navbar-nav align-items-center ms-auto">
+        <!-- User Dropdown-->
+        <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
+          <a
+            class="btn btn-icon btn-transparent-dark dropdown-toggle"
+            id="navbarDropdownUserImage"
+            href="javascript:void(0);"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+          {{#if imagen}}{{{imagen}}}{{else}}
+          <img
+              class="img-fluid"
+              src="/images/users/user_default.png"
+            />
+              {{/if}}
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
+            aria-labelledby="navbarDropdownUserImage"
+          >
+            <h6 class="dropdown-header d-flex align-items-center">
+              {{#if imagen}}{{{imagen}}}{{else}}<img
+                class="dropdown-user-img"
+                src="/images/users/user_default.png"
+              />{{/if}}
+              <div class="dropdown-user-details">
+                <div class="dropdown-user-details-name">{{nombre}}</div>
+                <div class="dropdown-user-details-email">{{#if rol}}ADMINISTRADOR{{else}}AGENTE{{/if}}</div>
+              </div>
+            </h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/salir">
+              <div class="dropdown-item-icon"><i
+                  data-feather="log-out"
+                ></i></div>
+              Salir
+            </a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <nav class="sidenav shadow-right sidenav-light">
+          <div class="sidenav-menu">
+            <div class="nav accordion" id="accordionSidenav">
+              <div class="sidenav-menu-heading">Propiedades</div>
+              <a
+                class="nav-link collapsed"
+                href="javascript:void(0);"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseDashboardsPropiedades"
+                aria-expanded="false"
+                aria-controls="collapseDashboardsPropiedades"
+              >
+                <div class="nav-link-icon"><i class="fas fa-home"></i></div>
+                Propiedades
+                <div class="sidenav-collapse-arrow"><i
+                    class="fas fa-angle-down"
+                  ></i></div>
+              </a>
+              <div
+                class="collapse"
+                id="collapseDashboardsPropiedades"
+                data-bs-parent="#accordionSidenav"
+              >
+                <nav
+                  class="sidenav-menu-nested nav accordion"
+                  id="accordionSidenavPages"
+                >
+                  <a class="nav-link" href="/admin/propiedades">
+                    Todas las Propiedades
+                  </a>
+                  <a class="nav-link" href="/admin/propiedades/crear">Crear Propiedad</a>
+                </nav>
+              </div>
+              
+              {{#if rol}}
+               
+               <div class="sidenav-menu-heading">Agentes</div>
+
+              <a
+                class="nav-link collapsed"
+                href="javascript:void(0);"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseDashboardsAgentes"
+                aria-expanded="false"
+                aria-controls="collapseDashboardsAgentes"
+              >
+                <div class="nav-link-icon"><i class="fas fa-sign"></i></div>
+                Agentes
+                <div class="sidenav-collapse-arrow"><i
+                    class="fas fa-angle-down"
+                  ></i></div>
+              </a>
+              
+              <div
+                class="collapse"
+                id="collapseDashboardsAgentes"
+                data-bs-parent="#accordionSidenav"
+              >
+                <nav
+                  class="sidenav-menu-nested nav accordion"
+                  id="accordionSidenavPages"
+                >
+                  <a class="nav-link" href="/admin/agentes">
+                    Todos los Agentes
+                  </a>
+                  <a class="nav-link" href="/admin/agentes/crear">Crear Agente</a>
+                </nav>
+              </div>
+                {{/if}}
+            </div>
+          </div>
+          <!-- Sidenav Footer-->
+          <div class="sidenav-footer">
+            <div class="sidenav-footer-content">
+              <div class="sidenav-footer-subtitle mb-1">Usuario: <b>{{nombre}}</b></div>
+              <div class="sidenav-footer-subtitle">Rol: {{#if rol}}<b>Administrador</b>{{else}}<b>Agente</b>{{/if}}</div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div id="layoutSidenav_content">
+        <main>
+
+          {{{body}}}
+        </main>
+        <footer class="footer-admin mt-auto footer-light">
+          <div class="container-xl px-4">
+            <div class="row">
+              <div class="col-md-6 small">Copyright &copy; Juan Mateo Baracco 2023</div>
+              <div class="col-md-6 text-md-end small">
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/javascripts/sb-admin.js"></script>
+  </body>
+</html>

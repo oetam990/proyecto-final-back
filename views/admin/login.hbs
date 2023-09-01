@@ -1,0 +1,85 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/sb-admin.css" />
+    <script
+      data-search-pseudo-elements
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="layoutAuthentication">
+      <div id="layoutAuthentication_content">
+        <main>
+          <div class="container-xl px-4">
+            <div class="row justify-content-center">
+              <div class="col-lg-5">
+                <!-- Basic login form-->
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                  <div class="card-header justify-content-center"><h3
+                      class="fw-light my-4"
+                    >Iniciar sesión</h3></div>
+                  <div class="card-body">
+                    <!-- Login form-->
+                    <form action="/ingresar" method="POST">
+                      <!-- Form Group (email address)-->
+                      <div class="mb-3">
+                        <label class="small mb-1" for="usuario">Email</label>
+                        <input
+                          class="form-control"
+                          id="usuario"
+                          name="usuario"
+                          type="text"
+                          placeholder="Ingrese su usuario"
+                          required
+                        />
+                      </div>
+                      <!-- Form Group (password)-->
+                      <div class="mb-3">
+                        <label
+                          class="small mb-1"
+                          for="inputPassword"
+                        >Password</label>
+                        <input
+                          class="form-control"
+                          id="password"
+                          name="password"
+                          type="password"
+                          placeholder="Ingrese su contraseña"
+                        />
+                      </div>
+                      <!-- Form Group (login box)-->
+                      <div
+                        class="d-flex align-items-center justify-content-between mt-4 mb-0"
+                      >
+                      <button class="btn btn-primary" type="submit">Ingresar</button>
+                      </div>
+                    </form>
+                  </div>
+                  {{#if error}}
+                    <div class="alert alert-danger mx-2" role="alert">
+                      Usuario o contraseña incorrectos
+                    </div>
+                  {{/if}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/javascripts/sb-admin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<div class="bg-primary banner d-flex justify-content-center align-items-center">
+  <h1 class="text-white"><i class="fas fa-sign"></i> Agentes</h1>
+</div>
+<div class="container mt-5">
+  <div class="col-2 text-right mb-2">
+    <a href="/admin/agentes/crear" class="btn btn-success">
+      <i class="fa fa-plus"></i>Agregar Agente</a>
+  </div>
+  <div class="card p-3">
+    <table class="table">
+      <thead>
+        <tr>
+
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Username</th>
+          <th scope="col">Foto</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each agentes}}
+          <tr>
+            <th scope="row">{{id_agente}}</th>
+            <td>{{nombre}}</td>
+            <td>{{apellido}}</td>
+            <td>{{username}}</td>
+            <td>{{#if imagen}}{{{imagen}}}{{else}}<hr>{{/if}}</td>
+            <td><a href="/admin/agentes/modificar/{{id_agente}}" class="text-primary"><i class="fas fa-pencil-alt me-2"></i></a><a
+                href="/admin/agentes/eliminar/{{id_agente}}" class="text-danger"
+              ><i class="fas fa-trash-alt"></i></a></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+</div>

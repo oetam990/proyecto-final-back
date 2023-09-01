@@ -1,0 +1,38 @@
+<div class="bg-primary banner d-flex justify-content-center align-items-center">
+  <h1 class="text-white"><i class="fas fa-home"></i> Propiedades</h1>
+</div>
+<div class="container mt-5">
+    <div class="col-2 text-right mb-2">
+      <a href="/admin/propiedades/crear" class="btn btn-success">
+      <i class="fa fa-plus"></i>Agregar Propiedad</a>
+    </div>
+  <div class="card p-4">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Título</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Localidad</th>
+      <th scope="col">Destacada</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each propiedades}}
+    <tr>
+      <td scope="row">{{titulo}}</td>
+      <td>${{precio}}</td>
+      <td>{{localidad}}</td>
+      <td>{{#if destacada}}<i class="fas fa-thumbs-up text-success"></i>{{/if}}</td>
+      <td>{{{imagen}}}</td>
+      <td><a href="/admin/propiedades/modificar/{{id}}" class="me-2 text-primary"><i class="fas fa-pencil-alt"></i></a><a
+                href="/admin/propiedades/eliminar/{{id}}" class="text-danger"
+              ><i class="fas fa-trash-alt"></i></a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+  </div>
+
+</div>
