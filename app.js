@@ -7,6 +7,8 @@ var fileUpload = require('express-fileupload');
 var cors = require('cors');
 require('dotenv').config();
 var pool = require('./models/db');
+var cloudinary = require('cloudinary').v2;
+
 var usuarioModel = require('./models/usuarioModel');
 const session = require('express-session');
 var indexRouter = require('./routes/index');
